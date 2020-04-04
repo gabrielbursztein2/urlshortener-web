@@ -17,7 +17,6 @@ export const createUrl = url => async dispatch => {
     dispatch({ type: CREATE_URL_SUCCESS, payload: { shortUrl } });
   } catch (error) {
     dispatch({ type: CREATE_URL_FAIL, payload: { error }});
-    console.log(error);
   }
 }
 

@@ -8,7 +8,6 @@ import ResultUrl from './components/resultUrl';
 import TopUrl from './components/topUrl';
 
 const App = props => {
-  console.log(props);
   const dispatch = useDispatch();
 
   useEffect(() => {

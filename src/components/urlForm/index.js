@@ -5,11 +5,11 @@ import * as yup from 'yup';
 
 import './styles.css';
 
-const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/;
+const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&//=]*)/;
 
 
 const schema = yup.object({
-  url: yup.string().required().matches(urlRegex, "Invalid URL")
+  url: yup.string().required().matches(urlRegex, "Invalid URL, e.g: https://www.google.com")
 });
 
 const UrlForm = ({ handleSubmit}) => (
