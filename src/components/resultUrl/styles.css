@@ -1,0 +1,19 @@
+.result-container {
+  width: 80%;
+  margin: 2rem auto;
+  border-radius: 0.5rem;
+  background-color: #DABFBA;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+
+.result-url {
+  font-size: 2rem;
+  display: block;
+  margin: 1rem;
+}
+
+.result-title {
+  font-size: 3rem;
+  color: green;
+}

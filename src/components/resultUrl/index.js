@@ -1,25 +1,20 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import { string } from 'prop-types';
+import { string, func } from 'prop-types';
+import Button from "react-bootstrap/Button";
+import './styles.css';
 
-const ResultUrl = ({ shortUrl }) => {
-  if (shortUrl) {
-    return (
-      <div>
-        <p>{shortUrl}</p>
-      </div>
-    );
-  } else {
-    return <></>
-  }
-}
+const ResultUrl = ({ shortUrl, refreshShortUrl }) => (
+  <div className="result-container">
+    <p className="result-title">Success!</p>
+    <a href={shortUrl} className="result-url">{shortUrl}</a>
+
+    <Button variant="dark" onClick={refreshShortUrl}>Create another one</Button>
+  </div>
+);
 
 ResultUrl.propTypes = {
   shortUrl: string,
+  refreshShortUrl: func.isRequired
 };
 
-const mapState = state => ({
-  shortUrl: state.urlReducer.shortUrl
-})
-
-export default connect(mapState, null)(ResultUrl);
+export default ResultUrl;

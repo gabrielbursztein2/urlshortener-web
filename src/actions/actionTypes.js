@@ -1,2 +1,9 @@
 export const CREATE_URL = 'CREATE_URL';
 export const CREATE_URL_SUCCESS = 'CREATE_URL_SUCCESS';
+export const CREATE_URL_FAIL = 'CREATE_URL_FAIL';
+
+export const GET_TOP_URL = 'GET_TOP_URL';
+export const GET_TOP_URL_SUCCESS = 'GET_TOP_URL_SUCCESS';
+export const GET_TOP_URL_FAIL = 'GET_TOP_URL_FAIL';
+
+export const REFRESH_SHORT_URL = 'REFRESH_SHORT_URL';

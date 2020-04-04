@@ -1,17 +1,26 @@
 import axios from 'axios';
+import humps from 'humps';
+import runtimeEnv from '@mars/heroku-js-runtime-env';
+
+const env = runtimeEnv();
+const API_URL = env.REACT_APP_API_URL;
 
 const instance = axios.create({
-  baseURL: process.env.API_URL,
-  
+  baseURL: API_URL,
+  transformResponse: [...axios.defaults.transformResponse, data => humps.camelizeKeys(data)],
+  transformRequest: [data => humps.decamelizeKeys(data), ...axios.defaults.transformRequest],
 });
+
+instance.defaults.headers.common['Content-Type'] = 'application/json';
 
 class AppService {
   static createUrl = url => 
     instance.post(
-      'http://localhost:3000/api/v1/urls',
-      { url },
-      { headers: { 'accept': 'application/json', 'content-type': 'application/json' } }
+      '/urls',
+      { url }
     );
+
+  static getTopUrl = () => instance.get('/urls', { data: {} });
 }
 
 export default AppService;
